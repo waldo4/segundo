@@ -1,0 +1,25 @@
+:root {
+    --footer1: #1e5170;
+    --footer2: #1b3846;
+  }
+
+  #footer {
+    background-image: linear-gradient(to right, var(--footer2), var(--footer1)) !important;
+  }
+
+  #supertxt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+    margin: auto;
+    z-index: 9999999;
+  }
+
+  #orador :hover {
+    color: black !important;
+  }
+
+  .navbar-nav :hover {
+    color: rgb(0, 0, 0) !important;
+  }

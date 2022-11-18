@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="sp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./stylo.css">
+  <title>Compra de ticket</title>
+
+</head>
+
+<body class="container-fluid">
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark bg-gradient">
+    <div class="container-fluid">
+      <a href="#"><img src="./codoacodo.png" width="50%" alt="logo codo a codo"></a>
+
+      <a class="navbar-brand text-white" href="#">Conf Bs As</a>
+
+      <div class="collapse navbar-collapse d-flex justify-content-end me-4" id="navbarSupportedContent">
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <a class="nav-link text-secondary btn btn-outline-light text-withe border-0" href="#">La
+              conferencia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary btn btn-outline-light text-withe border-0" href="#">Los
+              oradores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary btn btn-outline-light text-withe border-0" href="#">El lugar y
+              la fecha</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary btn btn-outline-light text-withe border-0" href="#">Conviértete en
+              orador</a>
+          </li>
+
+          <li class="nav-item">
+            <a id="ticket" class="nav-link  btn btn-outline-warning text-withe border-0 ">Comprar
+              tickets</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!--Tarjeta -->
+
+  <div class="mt-4 row row-cols-1 row-cols-md-3  text-center">
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm border-primary">
+        <div class="card-header py-3 text-bg-primary border-primary">
+          <h4 class="my-0 fw-normal">Estudiantes</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">80%<small class="text-muted fw-light"></small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>de descuento</li>
+            <li>*Presentar documentación</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm border border-success">
+        <div class="card-header py-3 text-bg-success border-success">
+          <h4 class="my-0 fw-normal">Trainee</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">50%<small class="text-muted fw-light"></small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>de descuento</li>
+            <li>*Presentar documentación</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm border-primary">
+        <div class="card-header py-3 text-bg-primary border-primary">
+          <h4 class="my-0 fw-normal">Junior</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">15%<small class="text-muted fw-light"></small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>de descuento</li>
+            <li>*Presentar documentación</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="text-secondary text-center ">VENTA</h2>
+  <h2 class="text-center">VALOR DE TICKET $200</h2>
+  <br>
+
+  <!--Formulario-->
+
+  <form id="sebaForm">
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido">
+      </div>
+    </div>
+    <form class="row g-3">
+      <div class="col-md-12">
+        <label for="inputEmail4" class="form-label"></label>
+        <input type="email" class="form-control" placeholder="Email" id="inputEmail4">
+
+      </div>
+
+
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="inputCity" class="form-label">Cantidad</label>
+          <input type="number" name="numero" value="1" min="1" max="10" onchange="calcular()" class="form-control" id="cantidad">
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Categoria</label>
+          <select id="Categoria" class="form-select" onchange="calcular()">
+            <option selected >Selecione...</option>
+            <option  value="0">General</option>
+            <option  value="80">Estudiante</option>
+            <option  value="50">Trainee</option>
+            <option  value="15">Junio</option>
+            </select>
+        </div>
+        <div class="row justify-content-center mt-5">
+          <p class=" alert alert-primary col-8" role="alert"> Total a Pagar:
+            <span class="fw-bold  text-success" id="descuento">$0</span>
+          </p>
+        </div>
+      
+        <!--botones-->
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" onclick="rest()" autocomplete="off" >
+          <label class="btn btn-outline-danger" for="btnradio1">Borrar</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2"  onclick="finalizar()" autocomplete="off">
+          <label class="btn btn-outline-success" for="btnradio2">Comprar</label>
+
+        </div>
+        <br>
+        <!-- Footer -->
+                <section id="footer" class="pb-4 pt-4">
+          <div class="container">
+            <div class="row text-center">
+              <div class="col-xs-12 col-lg">
+                <a href="#" target="">Preguntas frecuentes</a>
+              </div>
+              <div class="col-xs-12 col-lg">
+                <a href="#" target="">Contáctanos</a>
+              </div>
+              <div class="col-xs-12 col-lg">
+                <a href="#" target="">Prensa</a>
+              </div>
+              <div class="col-xs-12 col-lg">
+                <a href="#" target="">Conferencias</a>
+              </div>
+              <div class="col-xs-12 col-lg">
+                <a href="#" target="">Términos y condiciones</a>
+              </div>
+              <div class="col-xs-12 col-lg">
+                <a href="#" target="">Privacidad</a>
+              </div>
+              <div class="col-xs-12 col-lg">
+                <a href="#">Estudiantes</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <script src="./pagar.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
